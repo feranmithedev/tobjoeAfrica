@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "../data/portfolio";
@@ -84,7 +84,7 @@ function Navbar() {
           aria-label="Tobjoe Africa home"
         >
           <span className="grid h-9 w-9 place-items-center rounded-full border border-[#D4AF37]/60 bg-[#D4AF37]/10 text-sm font-black text-[#D4AF37]">
-            <img src="/public/tobjoeAfrica.png" alt="Tobjoe Africa Logo" />
+            <img src="/tobjoeAfrica.png" className="h-full w-full rounded-full object-contain p-1" alt="Tobjoe Africa Logo" />
           </span>
           <span className="text-sm font-semibold uppercase tracking-[0.18em]">
             Tobjoe Africa
@@ -145,3 +145,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

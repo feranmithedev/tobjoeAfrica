@@ -1,4 +1,4 @@
-import { Camera, Mail, Send } from "lucide-react";
+﻿import { Camera, Mail, Send } from "lucide-react";
 import { navLinks } from "../data/portfolio";
 
 function Footer() {
@@ -9,7 +9,7 @@ function Footer() {
           <a className="flex items-center gap-3" href="#home">
             <span className="grid h-10 w-10 place-items-center rounded-full border border-[#D4AF37]/55 text-sm font-black text-[#D4AF37]">
               <img
-                src="/public/tobjoeAfrica.png"
+                src="/tobjoeAfrica.png" className="h-full w-full rounded-full object-contain p-1"
                 alt="Tobjoe Africa Logo"
               />
             </span>
@@ -72,3 +72,4 @@ function Footer() {
 }
 
 export default Footer;
+
