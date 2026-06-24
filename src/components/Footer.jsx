@@ -9,7 +9,7 @@ function Footer() {
           <a className="flex items-center gap-3" href="#home">
             <span className="grid h-10 w-10 place-items-center rounded-full border border-[#D4AF37]/55 text-sm font-black text-[#D4AF37]">
               <img
-                src="/src/assets/tobjoeAfrica.png"
+                src="/public/tobjoeAfrica.png"
                 alt="Tobjoe Africa Logo"
               />
             </span>

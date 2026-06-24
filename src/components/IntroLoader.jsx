@@ -119,7 +119,7 @@ function IntroLoader({ onComplete }) {
           ref={markRef}
           className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full border border-[#D4AF37]/55 bg-[#D4AF37]/10 text-sm font-black text-[#D4AF37] shadow-[0_0_60px_rgba(212,175,55,0.22)]"
         >
-          <img src="/src/assets/tobjoeAfrica.png" alt="Tobjoe Africa Logo" />
+          <img src="/public/tobjoeAfrica.png" alt="Tobjoe Africa Logo" />
         </div>
         <p className="mb-5 text-xs font-bold uppercase tracking-[0.38em] text-white/50">
           Capturing Stories
