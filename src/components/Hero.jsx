@@ -1,35 +1,44 @@
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ArrowRight, CalendarDays, Play } from 'lucide-react'
-import { studioHighlights } from '../data/portfolio'
-import SectionDivider from './SectionDivider'
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ArrowRight, CalendarDays, Play } from "lucide-react";
+import { studioHighlights } from "../data/portfolio";
+import SectionDivider from "./SectionDivider";
 
 function Hero({ introComplete }) {
-  const heroRef = useRef(null)
+  const heroRef = useRef(null);
 
   useEffect(() => {
     if (!introComplete) {
-      return undefined
+      return undefined;
     }
 
     const context = gsap.context(() => {
-      const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } })
+      const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       timeline
-        .from('.hero-reveal', { y: 34, opacity: 0, duration: 0.9, stagger: 0.12 })
-        .from('.floating-frame', { opacity: 0, y: 24, rotate: -2, duration: 0.9, stagger: 0.1 }, '-=0.5')
-        .to('.float-slow', {
+        .from(".hero-reveal", {
+          y: 34,
+          opacity: 0,
+          duration: 0.9,
+          stagger: 0.12,
+        })
+        .from(
+          ".floating-frame",
+          { opacity: 0, y: 24, rotate: -2, duration: 0.9, stagger: 0.1 },
+          "-=0.5",
+        )
+        .to(".float-slow", {
           y: -16,
           duration: 3.8,
           repeat: -1,
           yoyo: true,
-          ease: 'sine.inOut',
+          ease: "sine.inOut",
           stagger: 0.4,
-        })
-    }, heroRef)
+        });
+    }, heroRef);
 
-    return () => context.revert()
-  }, [introComplete])
+    return () => context.revert();
+  }, [introComplete]);
 
   return (
     <section
@@ -43,13 +52,16 @@ function Hero({ introComplete }) {
 
       <div className="section-shell grid items-center gap-14 lg:grid-cols-[1fr_0.88fr]">
         <div className="max-w-4xl">
-          <p className="hero-reveal section-kicker mb-6">Capturing Stories. Creating Impact.</p>
+          <p className="hero-reveal section-kicker mb-6">
+            Capturing Stories. Creating Impact.
+          </p>
           <h1 className="hero-reveal text-[clamp(3.5rem,9vw,8.8rem)] font-semibold leading-[0.84] text-white">
             Visual Stories That Inspire
           </h1>
           <p className="hero-reveal mt-7 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">
-            We help brands, ministries, businesses, and individuals tell powerful stories through filmmaking,
-            photography, videography, and creative editing.
+            We help brands, ministries, businesses, and individuals tell
+            powerful stories through filmmaking, photography, videography, and
+            creative editing.
           </p>
 
           <div className="hero-reveal mt-9 flex flex-col gap-3 sm:flex-row">
@@ -63,9 +75,16 @@ function Hero({ introComplete }) {
 
           <div className="hero-reveal mt-9 grid max-w-2xl gap-3 sm:grid-cols-3">
             {studioHighlights.map((item) => (
-              <div className="border-l border-[#D4AF37]/45 pl-4" key={item.value}>
-                <p className="text-2xl font-semibold text-white">{item.value}</p>
-                <p className="mt-1 text-sm leading-5 text-white/52">{item.label}</p>
+              <div
+                className="border-l border-[#D4AF37]/45 pl-4"
+                key={item.value}
+              >
+                <p className="text-2xl font-semibold text-white">
+                  {item.value}
+                </p>
+                <p className="mt-1 text-sm leading-5 text-white/52">
+                  {item.label}
+                </p>
               </div>
             ))}
           </div>
@@ -80,8 +99,12 @@ function Hero({ introComplete }) {
               <span className="h-2 w-2 rounded-full bg-white/40" />
             </div>
             <div className="absolute bottom-7 left-7 right-7">
-              <p className="text-xs uppercase tracking-[0.28em] text-[#D4AF37]">Director Monitor</p>
-              <p className="mt-3 text-3xl font-semibold leading-tight">Faith. Brand. Culture. Memory.</p>
+              <p className="text-xs uppercase tracking-[0.28em] text-[#D4AF37]">
+                Director Monitor
+              </p>
+              <p className="mt-3 text-3xl font-semibold leading-tight">
+                Faith. Brand. Culture. Memory.
+              </p>
             </div>
           </div>
 
@@ -106,7 +129,7 @@ function Hero({ introComplete }) {
       </div>
       <SectionDivider variant="gold" />
     </section>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

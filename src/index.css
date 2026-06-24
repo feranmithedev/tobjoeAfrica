@@ -10,13 +10,20 @@ body {
   min-width: 320px;
   color: #ffffff;
   background:
-    radial-gradient(circle at 16% 8%, rgba(212, 175, 55, 0.15), transparent 24rem),
-    radial-gradient(circle at 84% 4%, rgba(177, 18, 38, 0.18), transparent 22rem),
+    radial-gradient(
+      circle at 16% 8%,
+      rgba(212, 175, 55, 0.15),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 84% 4%,
+      rgba(177, 18, 38, 0.18),
+      transparent 22rem
+    ),
     #000000;
   --font-display: "Cormorant Garamond", "Bodoni 72", "Didot", "Georgia", serif;
   --font-body: "Poppins", "Helvetica Neue", "Arial", sans-serif;
-  font-family:
-    var(--font-body);
+  font-family: var(--font-body);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -87,7 +94,11 @@ h3,
 .cinema-card {
   border: 1px solid rgba(255, 255, 255, 0.11);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03)),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(255, 255, 255, 0.03)
+    ),
     rgba(12, 12, 12, 0.72);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(18px);

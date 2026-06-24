@@ -1,40 +1,42 @@
-import { useEffect, useRef, useState } from 'react'
-import gsap from 'gsap'
-import { Menu, X } from 'lucide-react'
-import { navLinks } from '../data/portfolio'
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { Menu, X } from "lucide-react";
+import { navLinks } from "../data/portfolio";
 
 function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const navRef = useRef(null)
-  const menuRef = useRef(null)
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30)
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 30);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const context = gsap.context(() => {
       gsap.to(navRef.current, {
-        backgroundColor: scrolled ? 'rgba(0,0,0,0.82)' : 'rgba(0,0,0,0.18)',
-        borderColor: scrolled ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.06)',
-        backdropFilter: scrolled ? 'blur(22px)' : 'blur(12px)',
+        backgroundColor: scrolled ? "rgba(0,0,0,0.82)" : "rgba(0,0,0,0.18)",
+        borderColor: scrolled
+          ? "rgba(255,255,255,0.12)"
+          : "rgba(255,255,255,0.06)",
+        backdropFilter: scrolled ? "blur(22px)" : "blur(12px)",
         duration: 0.28,
-        ease: 'power2.out',
-      })
-    }, navRef)
+        ease: "power2.out",
+      });
+    }, navRef);
 
-    return () => context.revert()
-  }, [scrolled])
+    return () => context.revert();
+  }, [scrolled]);
 
   useEffect(() => {
-    const menu = menuRef.current
+    const menu = menuRef.current;
 
     if (!menu) {
-      return undefined
+      return undefined;
     }
 
     const context = gsap.context(() => {
@@ -42,22 +44,33 @@ function Navbar() {
         gsap.fromTo(
           menu,
           { autoAlpha: 0, y: -14, scale: 0.98 },
-          { autoAlpha: 1, y: 0, scale: 1, duration: 0.28, ease: 'power3.out' },
-        )
+          { autoAlpha: 1, y: 0, scale: 1, duration: 0.28, ease: "power3.out" },
+        );
         gsap.fromTo(
-          '.mobile-link',
+          ".mobile-link",
           { opacity: 0, y: 12 },
-          { opacity: 1, y: 0, stagger: 0.055, duration: 0.28, ease: 'power2.out' },
-        )
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.055,
+            duration: 0.28,
+            ease: "power2.out",
+          },
+        );
       } else {
-        gsap.to(menu, { autoAlpha: 0, y: -10, duration: 0.2, ease: 'power2.in' })
+        gsap.to(menu, {
+          autoAlpha: 0,
+          y: -10,
+          duration: 0.2,
+          ease: "power2.in",
+        });
       }
-    }, menu)
+    }, menu);
 
-    return () => context.revert()
-  }, [menuOpen])
+    return () => context.revert();
+  }, [menuOpen]);
 
-  const handleNavClick = () => setMenuOpen(false)
+  const handleNavClick = () => setMenuOpen(false);
 
   return (
     <header
@@ -65,22 +78,35 @@ function Navbar() {
       className="fixed left-1/2 top-4 z-50 w-[min(1180px,calc(100%-24px))] -translate-x-1/2 rounded-full border border-white/10 px-4 py-3 text-white shadow-2xl shadow-black/20"
     >
       <nav className="flex items-center justify-between gap-5">
-        <a href="#home" className="flex items-center gap-3" aria-label="Tobjoe Africa home">
+        <a
+          href="#home"
+          className="flex items-center gap-3"
+          aria-label="Tobjoe Africa home"
+        >
           <span className="grid h-9 w-9 place-items-center rounded-full border border-[#D4AF37]/60 bg-[#D4AF37]/10 text-sm font-black text-[#D4AF37]">
             <img src="/src/assets/tobjoeAfrica.png" alt="Tobjoe Africa Logo" />
           </span>
-          <span className="text-sm font-semibold uppercase tracking-[0.18em]">Tobjoe Africa</span>
+          <span className="text-sm font-semibold uppercase tracking-[0.18em]">
+            Tobjoe Africa
+          </span>
         </a>
 
         <div className="hidden items-center gap-7 text-sm font-medium text-white/72 lg:flex">
           {navLinks.map((link) => (
-            <a className="transition hover:text-[#D4AF37]" href={link.href} key={link.href}>
+            <a
+              className="transition hover:text-[#D4AF37]"
+              href={link.href}
+              key={link.href}
+            >
               {link.label}
             </a>
           ))}
         </div>
 
-        <a className="primary-button hidden min-h-10 px-4 py-2 text-sm lg:inline-flex" href="#contact">
+        <a
+          className="primary-button hidden min-h-10 px-4 py-2 text-sm lg:inline-flex"
+          href="#contact"
+        >
           Book Now
         </a>
 
@@ -115,7 +141,7 @@ function Navbar() {
         </div>
       </div>
     </header>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -1,21 +1,27 @@
-import { services } from '../data/portfolio'
-import SectionDivider from './SectionDivider'
+import { services } from "../data/portfolio";
+import SectionDivider from "./SectionDivider";
 
 function Services() {
   return (
-    <section id="services" className="relative bg-[#050505] pt-14 pb-14 sm:pt-16 sm:pb-16">
+    <section
+      id="services"
+      className="relative bg-[#050505] pt-14 pb-14 sm:pt-16 sm:pb-16"
+    >
       <div className="section-shell">
         <div className="max-w-3xl">
           <p className="section-kicker mb-4">Services</p>
-          <h2 className="section-title">Production support from first idea to final frame.</h2>
+          <h2 className="section-title">
+            Production support from first idea to final frame.
+          </h2>
           <p className="section-copy mt-6">
-            Choose a focused service or bring Tobjoe Africa into the complete creative process.
+            Choose a focused service or bring Tobjoe Africa into the complete
+            creative process.
           </p>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => {
-            const Icon = service.icon
+            const Icon = service.icon;
 
             return (
               <article
@@ -29,15 +35,17 @@ function Services() {
                   <span className="h-px w-16 bg-linear-to-r from-[#D4AF37] to-transparent" />
                 </div>
                 <h3 className="text-2xl font-semibold">{service.title}</h3>
-                <p className="mt-4 leading-7 text-white/62">{service.description}</p>
+                <p className="mt-4 leading-7 text-white/62">
+                  {service.description}
+                </p>
               </article>
-            )
+            );
           })}
         </div>
       </div>
       <SectionDivider variant="red" />
     </section>
-  )
+  );
 }
 
-export default Services
+export default Services;
